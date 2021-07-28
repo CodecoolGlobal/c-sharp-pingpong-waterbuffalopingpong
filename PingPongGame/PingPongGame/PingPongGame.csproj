@@ -6,4 +6,24 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="1f403.png" />
+    <None Remove="7278.png_860.png" />
+    <None Remove="Azure_Blue_Sea_Background-775.jpg" />
+    <None Remove="Cascades-waterfall-Falling-Wide-Desktop-Background-01674-915x515.jpg" />
+    <None Remove="log-clipart-transparent-3.png" />
+    <None Remove="png-transparent-wood-floor-planks-pier-ground-brown.png" />
+    <None Remove="pngwing.com.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="1f403.png" />
+    <Resource Include="7278.png_860.png" />
+    <Resource Include="Azure_Blue_Sea_Background-775.jpg" />
+    <Resource Include="Cascades-waterfall-Falling-Wide-Desktop-Background-01674-915x515.jpg" />
+    <Resource Include="log-clipart-transparent-3.png" />
+    <Resource Include="png-transparent-wood-floor-planks-pier-ground-brown.png" />
+    <Resource Include="pngwing.com.png" />
+  </ItemGroup>
+
 </Project>
