@@ -45,8 +45,6 @@ namespace PingPongGame
             else if (topMargin >= MainWindow.ActualHeight - 1.5 * _racket.ActualHeight - 2 * _ball.ActualHeight &&   // top vizsgalat
                       _racket.Margin.Left - _racket.ActualWidth <= leftMargin &&
                      _racket.Margin.Left + _racket.ActualWidth >= leftMargin) { VerticalBounce(); }  // kell majd score
-            
-
         }
 
         protected void HorizontalBounce()
