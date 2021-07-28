@@ -36,7 +36,7 @@ namespace PingPongGame
         {
             timer1 = new System.Windows.Threading.DispatcherTimer();
             Cursor = Cursors.None;
-            timer1.Interval = new TimeSpan(0, 0, 1);
+            timer1.Interval = new TimeSpan(0, 0, 0, 0, 1);
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
         }
