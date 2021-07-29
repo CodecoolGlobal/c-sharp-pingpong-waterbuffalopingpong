@@ -22,6 +22,7 @@ namespace PingPongGame
     {
         private Ball _ball;
         private Racket _racket;
+        private int points = 0;
 
         System.Windows.Threading.DispatcherTimer timer1;
         public MainWindow()
@@ -76,6 +77,18 @@ namespace PingPongGame
         {
             timer1.Start();
             pauseBox.Visibility = Visibility.Hidden;
+        }
+
+        public void IncreaseScore()
+        {
+            points += 1;
+            score.Text = $"Score: {points}";
+        }
+
+        public void GameOver()
+        {
+            timer1.Stop();
+            gameOver.Visibility = Visibility.Visible;
         }
     }
 }
