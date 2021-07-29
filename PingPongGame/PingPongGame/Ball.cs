@@ -9,7 +9,7 @@ namespace PingPongGame
     {
         private readonly System.Windows.Shapes.Rectangle _racket;
         private readonly System.Windows.Shapes.Rectangle _ball;
-        double fixPosition = 5;
+        double fixPosition = 10;
         public Ball(System.Windows.Shapes.Rectangle rectangle, MainWindow mainWindow, System.Windows.Shapes.Rectangle racket) : base(rectangle, mainWindow)
         {
             _racket = racket;
@@ -25,6 +25,7 @@ namespace PingPongGame
         {
             double leftMargin = _ball.Margin.Left;
             double topMargin = _ball.Margin.Top;
+            Random random = new Random();
 
             if (!(leftMargin >= MainWindow.ActualWidth - _ball.ActualWidth * 2 || leftMargin <= -(MainWindow.ActualWidth - _ball.ActualWidth * 2)) && !((topMargin <= 0)) && !(topMargin >= MainWindow.ActualHeight - 1.5 * _racket.ActualHeight - 2 * _ball.ActualHeight &&   // top vizsgalat
                       _racket.Margin.Left - _racket.ActualWidth <= leftMargin &&
@@ -42,9 +43,20 @@ namespace PingPongGame
 
             else if (topMargin <= 0) { VerticalBounce(); }
 
-            else if (topMargin >= MainWindow.ActualHeight - 1.5 * _racket.ActualHeight - 2 * _ball.ActualHeight &&   // top vizsgalat
+            else if (topMargin >= MainWindow.ActualHeight - 1.5 * _racket.ActualHeight - 2 * _ball.ActualHeight &&
                       _racket.Margin.Left - _racket.ActualWidth <= leftMargin &&
-                     _racket.Margin.Left + _racket.ActualWidth >= leftMargin) { VerticalBounce(); }  // kell majd score
+                     _racket.Margin.Left + _racket.ActualWidth >= leftMargin)
+            { 
+                RacketBounce();
+                MainWindow.IncreaseScore();
+                if (BallSpeed["h_speed"] <= 15) BallSpeed["v_speed"] *= 1.1;
+                BallSpeed["h_speed"] = random.Next(-8, 8);
+            }
+
+            if (topMargin >= MainWindow.ActualHeight + 50)
+            {
+                MainWindow.GameOver();
+            }
         }
 
         protected void HorizontalBounce()
@@ -57,9 +69,15 @@ namespace PingPongGame
         {
             BallSpeed["v_speed"] = -BallSpeed["v_speed"];
             fixPosition = -fixPosition;
-            _ball.Margin = new Thickness(_ball.Margin.Left, _ball.Margin.Top + fixPosition, _ball.Margin.Right, _ball.Margin.Bottom);
+            _ball.Margin = new Thickness(_ball.Margin.Left, 5, _ball.Margin.Right, _ball.Margin.Bottom);
         }
 
+        protected void RacketBounce()
+        {
+            BallSpeed["v_speed"] = -BallSpeed["v_speed"];
+            fixPosition = -fixPosition;
+            _ball.Margin = new Thickness(_ball.Margin.Left, 295, _ball.Margin.Right, _ball.Margin.Bottom);
+        }
 
 
     }
