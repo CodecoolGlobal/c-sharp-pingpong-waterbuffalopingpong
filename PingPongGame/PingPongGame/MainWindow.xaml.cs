@@ -48,9 +48,34 @@ namespace PingPongGame
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.D) { _racket.Move("Right"); }
-            if (e.Key == Key.A) { _racket.Move("Left"); }
+            if (timer1.IsEnabled)
+            {
+                if (e.Key == Key.D) { _racket.Move("Right"); }
+                if (e.Key == Key.A) { _racket.Move("Left"); }
+            }
             if (e.Key == Key.Escape) { this.Close(); }
+            if (e.Key == Key.Space)
+            {
+                if (timer1.IsEnabled)
+                {
+                    HandlePause();
+                } else
+                {
+                    HandleContinue();
+                }
+            }
+        }
+
+        private void HandlePause()
+        {
+            timer1.Stop();
+            pauseBox.Visibility = Visibility.Visible;
+        }
+
+        private void HandleContinue()
+        {
+            timer1.Start();
+            pauseBox.Visibility = Visibility.Hidden;
         }
     }
 }
