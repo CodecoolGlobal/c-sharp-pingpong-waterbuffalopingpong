@@ -22,29 +22,64 @@ namespace PingPongGame
     {
         private Ball _ball;
         private Racket _racket;
+        private Gem _gem;
         private int points = 0;
+        public static bool IsGemActive = false;
+        private bool drop;
+        private int chance = 0;
+        private int activeTime = 0;
+        private int _progress = 0;
 
         System.Windows.Threading.DispatcherTimer timer1;
+        System.Windows.Threading.DispatcherTimer gemTimer;
+
         public MainWindow()
         {
             InitializeComponent();
             Loaded += Window_Loaded;
             _ball = new Ball(ball, this, racket);
             _racket = new Racket(racket, this);
+            _gem = new Gem(gem, this, racket, _ball);
         }
 
         public void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            timer1 = new System.Windows.Threading.DispatcherTimer();
             Cursor = Cursors.None;
-            timer1.Interval = new TimeSpan(0, 0, 0, 0, 1);
+            timer1 = new System.Windows.Threading.DispatcherTimer
+            {
+                Interval = new TimeSpan(0, 0, 0, 0, 1)
+            };
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
+            gemTimer = new System.Windows.Threading.DispatcherTimer
+            {
+                Interval = new TimeSpan(0, 0, 0, 1)
+            };
+            gemTimer.Tick += new EventHandler(GemTimer_Tick);
+            gemTimer.Start();
+        }
+
+        private void GemTimer_Tick(object sender, EventArgs e)
+        {
+            if (!IsGemActive)
+            {
+                chance++;
+                _gem.Drop(ref drop, ref chance);
+            }
+            if (IsGemActive) activeTime++;
+            if (activeTime == 20)
+            {
+                _gem.ResetGemFuctionality();
+                IsGemActive = false;
+                activeTime = 0;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (_progress == 100) Victory();
             _ball.Move();
+            if (drop) { _gem.Move(ref drop); }
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -54,7 +89,7 @@ namespace PingPongGame
                 if (e.Key == Key.D) { _racket.Move("Right"); }
                 if (e.Key == Key.A) { _racket.Move("Left"); }
             }
-            if (e.Key == Key.Escape) { this.Close(); }
+            if (e.Key == Key.Escape) { Close(); }
             if (e.Key == Key.Space)
             {
                 if (timer1.IsEnabled)
@@ -82,13 +117,30 @@ namespace PingPongGame
         public void IncreaseScore()
         {
             points += 1;
+            _progress += 5;
+            progress.Text = $"{_progress}%";
             score.Text = $"Score: {points}";
+        }
+
+        public void Victory()
+        {
+            gemTimer.Stop();
+            timer1.Stop();
+            victory.Visibility = Visibility.Visible;
+            ball.Visibility = Visibility.Hidden;
+            racket.Visibility = Visibility.Hidden;
+            score.Visibility = Visibility.Hidden;
         }
 
         public void GameOver()
         {
             timer1.Stop();
+            gemTimer.Stop();
+            racket.Visibility = Visibility.Hidden;
+            score.Visibility = Visibility.Hidden;
             gameOver.Visibility = Visibility.Visible;
+            gameOver.Text += $"\nYour final score was {points}!";
         }
+
     }
 }
