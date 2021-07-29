@@ -17,7 +17,7 @@ namespace PingPongGame
 
         }
 
-        protected Dictionary<string, double> BallSpeed = new Dictionary<string, double>()
+        public Dictionary<string, double> BallSpeed = new Dictionary<string, double>()
             {{"h_speed", 2}, {"v_speed", 2}};
 
 
@@ -49,8 +49,8 @@ namespace PingPongGame
             { 
                 RacketBounce();
                 MainWindow.IncreaseScore();
-                if (BallSpeed["h_speed"] <= 15) BallSpeed["v_speed"] *= 1.1;
-                BallSpeed["h_speed"] = random.Next(-8, 8);
+                if (BallSpeed["h_speed"] <= 7) BallSpeed["v_speed"] *= 1.1;
+                BallSpeed["h_speed"] = random.Next(-7, 7);
             }
 
             if (topMargin >= MainWindow.ActualHeight + 50)
