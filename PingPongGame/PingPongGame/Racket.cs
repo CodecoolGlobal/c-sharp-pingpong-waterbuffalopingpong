@@ -7,7 +7,7 @@ namespace PingPongGame
 {
     class Racket : Rectangle
     {
-
+        public int RacketSpeed { get; set; } = 15;
         public Racket(System.Windows.Shapes.Rectangle rectangle, MainWindow mainWindow) : base(rectangle, mainWindow)
         {
         }
@@ -19,10 +19,10 @@ namespace PingPongGame
                 switch (direction)
                 {
                     case "Right":
-                        if (leftMargin <= MainWindow.ActualWidth - BaseRectangle.ActualWidth) leftMargin += 10;
+                        if (leftMargin <= MainWindow.ActualWidth - BaseRectangle.ActualWidth) leftMargin += RacketSpeed;
                         break;
                     case "Left":
-                        if (leftMargin >= -MainWindow.ActualWidth + BaseRectangle.ActualWidth) leftMargin -= 10;
+                        if (leftMargin >= -MainWindow.ActualWidth + BaseRectangle.ActualWidth) leftMargin -= RacketSpeed;
                         break;
                 }
             }
