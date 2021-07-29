@@ -12,17 +12,11 @@ namespace PingPongGame
 
         protected System.Windows.Shapes.Rectangle BaseRectangle;
 
-
-
         public Rectangle(System.Windows.Shapes.Rectangle rectangle, MainWindow mainWindow)
         {
             MainWindow = mainWindow;
             BaseRectangle = rectangle;
         }
-
-
-
-
 
     }
 }
