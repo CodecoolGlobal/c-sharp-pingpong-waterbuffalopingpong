@@ -31,5 +31,6 @@
                 <ImageBrush ImageSource="/1f403.png"/>
             </Rectangle.Fill>
         </Rectangle>
+        <TextBox x:Name="pauseBox" Visibility="Hidden" HorizontalAlignment="Center" Background="Transparent" Text="Press SPACE to continue" FontSize="100" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" Width="800" Height="320" Margin="0,35,0,0" FontWeight="Bold" Foreground="#FF1CD1B4" BorderThickness="0,0,0,0"/>
     </Grid>
 </Window>
