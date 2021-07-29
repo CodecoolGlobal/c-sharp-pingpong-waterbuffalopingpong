@@ -10,20 +10,30 @@
     <None Remove="1f403.png" />
     <None Remove="7278.png_860.png" />
     <None Remove="Azure_Blue_Sea_Background-775.jpg" />
+    <None Remove="BlueGem.png" />
     <None Remove="Cascades-waterfall-Falling-Wide-Desktop-Background-01674-915x515.jpg" />
+    <None Remove="Gem-PNG-Free-Download.png" />
+    <None Remove="GreenGem.png" />
     <None Remove="log-clipart-transparent-3.png" />
     <None Remove="png-transparent-wood-floor-planks-pier-ground-brown.png" />
     <None Remove="pngwing.com.png" />
+    <None Remove="RedGem.png" />
+    <None Remove="YellowGem.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="1f403.png" />
     <Resource Include="7278.png_860.png" />
     <Resource Include="Azure_Blue_Sea_Background-775.jpg" />
+    <Resource Include="BlueGem.png" />
     <Resource Include="Cascades-waterfall-Falling-Wide-Desktop-Background-01674-915x515.jpg" />
+    <Resource Include="Gem-PNG-Free-Download.png" />
+    <Resource Include="GreenGem.png" />
     <Resource Include="log-clipart-transparent-3.png" />
     <Resource Include="png-transparent-wood-floor-planks-pier-ground-brown.png" />
     <Resource Include="pngwing.com.png" />
+    <Resource Include="RedGem.png" />
+    <Resource Include="YellowGem.png" />
   </ItemGroup>
 
 </Project>
