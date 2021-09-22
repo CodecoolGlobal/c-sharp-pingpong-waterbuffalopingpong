@@ -1,24 +1,13 @@
-# PingPong Game
+# Water Buffalo Ping Pong
 
-1st TW week exercise in .NET basics module
+This is a classic pong game from the 70's, except that you have a water buffalo that's bouncing around instead of a ball.
 
-## Description
+Features:
+- Power-ups and power-downs (which look the same, you're better off not catching any of them)
+- Epic game winning screen after reaching 100% progress (20 points)
+- A Water Buffalo. He's cute. 🐃
 
-After I am ready with my task I would like to play all day with a simple game. I would like to have a ping pong game to play with my colleague to race.
-
-## The vision
-
-![vision](documentation/ping-pong-game.jpg)
-
-## Feature set
-
-* Application is started and stopped normally
-* Pressing ESC stops the the application
-* With space it is paused
-* Each touching with ball is scored
-* Score is shown after I am done/stopped
-* Score is visible contionusly
-* Levels are defined (harder)
-* Gifts can be reached
-* Level is visibled
-* Progress is shown in the level (procent)
+Controls:
+- A/D to move the racket (Log) left/right
+- Space to pause the game
+- Escape to close the game
