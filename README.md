@@ -1,6 +1,6 @@
 # Water Buffalo Ping Pong
 
-This is a classic pong game from the 70's, except that you have a water buffalo that's bouncing around instead of a ball.
+This is a classic pong game from the 70's, except that you have a water buffalo that's bouncing around instead of a ball. Made with Windows Presentation Foundation.
 
 Features:
 - Power-ups and power-downs (which look the same, you're better off not catching any of them)
