@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Windows.Media;
 using System.Windows;
-using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace PingPongGame
 {
-    class Gem : Rectangle
+    class Gem : GameComponent
     {
         private GemColor gemColor = GemColor.BLUE;
         private Ball _ball;
-        private System.Windows.Shapes.Rectangle _racket;
-        private System.Windows.Shapes.Rectangle _gem;
+        private Rectangle _racket;
+        private Rectangle _gem;
         private readonly Random random = new Random();
 
-        public Gem(System.Windows.Shapes.Rectangle rectangle, MainWindow mainWindow, System.Windows.Shapes.Rectangle racket, Ball ball) : base(rectangle, mainWindow)
+        public Gem(Rectangle rectangle, MainWindow mainWindow, System.Windows.Shapes.Rectangle racket, Ball ball) : base(rectangle, mainWindow)
         {
             _gem = BaseRectangle;
             _ball = ball;
