@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
+using System.Windows.Shapes;
 
 namespace PingPongGame
 {
-    class Ball : Rectangle
+    class Ball : GameComponent
     {
-        private readonly System.Windows.Shapes.Rectangle _racket;
-        private readonly System.Windows.Shapes.Rectangle _ball;
+        private readonly Rectangle _racket;
+        private readonly Rectangle _ball;
         double fixPosition = 10;
-        public Ball(System.Windows.Shapes.Rectangle rectangle, MainWindow mainWindow, System.Windows.Shapes.Rectangle racket) : base(rectangle, mainWindow)
+        public Ball(Rectangle rectangle, MainWindow mainWindow, Rectangle racket) : base(rectangle, mainWindow)
         {
             _racket = racket;
             _ball = BaseRectangle;

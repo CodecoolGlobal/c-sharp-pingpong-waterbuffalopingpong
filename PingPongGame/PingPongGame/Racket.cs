@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Shapes;
 
 namespace PingPongGame
 {
-    class Racket : Rectangle
+    class Racket : GameComponent
     {
         public int RacketSpeed { get; set; } = 15;
-        public Racket(System.Windows.Shapes.Rectangle rectangle, MainWindow mainWindow) : base(rectangle, mainWindow)
+        public Racket(Rectangle rectangle, MainWindow mainWindow) : base(rectangle, mainWindow)
         {
         }
 
